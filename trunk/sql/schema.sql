@@ -1,0 +1,161 @@
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+  id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	username VARCHAR(30) NOT NULL DEFAULT '',
+	displayname VARCHAR(50) NOT NULL DEFAULT '',
+	email VARCHAR(255) NOT NULL DEFAULT '',
+	password CHAR(40) NOT NULL DEFAULT '',
+	preferences TEXT NOT NULL DEFAULT '',
+	approved BOOL NOT NULL DEFAULT "0",
+	created DATETIME NOT NULL,
+	modified DATETIME NOT NULL DEFAULT '1970-01-01 00:00:01',
+	
+	PRIMARY KEY (id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS settings;
+
+CREATE TABLE settings (
+	id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	name varchar(100) NOT NULL DEFAULT '',
+	`value` TEXT NOT NULL DEFAULT '',
+	type VARCHAR(30) NOT NULL DEFAULT 'STRING',
+
+	PRIMARY KEY (id),
+	KEY name_idx (name),
+	KEY type_idx (type)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS pages;
+
+CREATE TABLE pages (
+	id int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	url varchar(100) NOT NULL DEFAULT '',
+	page_id int(10) UNSIGNED NOT NULL DEFAULT '0',
+	title varchar(100) NOT NULL DEFAULT '',
+	copy TEXT NOT NULL DEFAULT '',
+	style TEXT NOT NULL DEFAULT '',
+	background_id int(10) NOT NULL DEFAULT '0',
+	root tinyint(1) NOT NULL DEFAULT '0',
+	terminal tinyint(1) NOT NULL DEFAULT '0',
+	`order` int(2) NOT NULL DEFAULT '0',
+	show_title tinyint(1) NOT NULL DEFAULT '1',
+	show_crumbs tinyint(1) NOT NULL DEFAULT '1',
+	visible tinyint(1) NOT NULL DEFAULT '1',
+        template VARCHAR(100) NOT NULL DEFAULT 'basic-content',
+	created DATETIME NOT NULL,
+	modified DATETIME NOT NULL DEFAULT '1970-01-01 00:00:01',
+	
+	PRIMARY KEY (id),
+	KEY page_id_idx (page_id),
+	KEY url_idx (url),
+	KEY background_id_idx (background_id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS assetdirs;
+
+CREATE TABLE assetdirs (
+  id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	assetdir_id int(10) NOT NULL DEFAULT '0',
+	name VARCHAR(255) NOT NULL DEFAULT '',
+	description TEXT NOT NULL DEFAULT '',
+	created DATETIME NOT NULL,
+	modified DATETIME NOT NULL DEFAULT '1970-01-01 00:00:01',
+	
+	PRIMARY KEY (id),
+	KEY assetdir_id_idx (assetdir_id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS assets;
+
+CREATE TABLE assets (
+  id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	assetdir_id INT(10) NOT NULL DEFAULT '0',
+	name VARCHAR(100) NOT NULL DEFAULT '',
+	filename VARCHAR(255) NOT NULL DEFAULT '',
+	type VARCHAR(50) NOT NULL DEFAULT '',
+	width int(10) UNSIGNED NOT NULL DEFAULT '0',
+	height int(10) UNSIGNED NOT NULL DEFAULT '0',
+	`size` INT(10) NOT NULL DEFAULT '0',
+	description TEXT NOT NULL DEFAULT '',
+	created DATETIME NOT NULL,
+	modified DATETIME NOT NULL DEFAULT '1970-01-01 00:00:01',
+	
+	PRIMARY KEY (id),
+	KEY assetdir_id_idx (assetdir_id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS events;
+
+CREATE TABLE events (
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	title VARCHAR(100) NOT NULL DEFAULT '',
+	organizer VARCHAR(100) NOT NULL DEFAULT 'Jeff Fitzgerald',
+	contact VARCHAR(100) NOT NULL DEFAULT 'contact@revolutioncycles.net',
+	address VARCHAR(200) NOT NULL DEFAULT '2330 Atwood Ave',
+	city VARCHAR(100) NOT NULL DEFAULT 'Madison',
+	description TEXT NOT NULL DEFAULT '',
+	cost VARCHAR(30) NOT NULL DEFAULT '',
+	payment VARCHAR(200) NOT NULL DEFAULT '',
+	`date` DATETIME NOT NULL,
+	capacity INT(10) UNSIGNED NOT NULL DEFAULT '100',
+	enrolled INT(10) UNSIGNED NOT NULL DEFAULT '0',
+	
+	created DATETIME NOT NULL,
+	modified DATETIME NOT NULL DEFAULT '1970-01-01 00:00:01',
+	
+	PRIMARY KEY (id),
+	KEY date_idx (`date`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS blogs;
+
+CREATE TABLE blogs (
+  id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	title VARCHAR(100) NOT NULL DEFAULT '',
+	created DATETIME NOT NULL,
+	modified DATETIME NOT NULL DEFAULT '1970-01-01 00:00:01',
+	
+	PRIMARY KEY (id),
+	KEY title_idx (title)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS blogposts;
+
+CREATE TABLE blogposts (
+  id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	blog_id INT(10) UNSIGNED NOT NULL DEFAULT '0',
+	title VARCHAR(100) NOT NULL DEFAULT '',
+	author INT(10) UNSIGNED NOT NULL DEFAULT '0',
+	content TEXT NOT NULL DEFAULT '',
+	visible tinyint(1) NOT NULL DEFAULT '1',
+	published DATETIME NOT NULL DEFAULT '1970-01-01 00:00:01',
+	
+	created DATETIME NOT NULL,
+	modified DATETIME NOT NULL DEFAULT '1970-01-01 00:00:01',
+	
+	PRIMARY KEY (id),
+	KEY created_idx (`created`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS submissions;
+
+CREATE TABLE submissions (
+	id INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`form` VARCHAR(100) NOT NULL DEFAULT '',
+	index1 VARCHAR(250) NOT NULL DEFAULT '',
+	index2 VARCHAR(250) NOT NULL DEFAULT '',
+	index3 VARCHAR(250) NOT NULL DEFAULT '',
+	contents TEXT NOT NULL DEFAULT '',
+	
+	created DATETIME NOT NULL,
+	modified DATETIME NOT NULL DEFAULT '1970-01-01 00:00:01',
+	
+	PRIMARY KEY (id),
+	KEY created_idx (`created`),
+	KEY form_idx (`form`),
+	KEY index1_idx (index1),
+	KEY index2_idx (index2),
+	KEY index3_idx (index3)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

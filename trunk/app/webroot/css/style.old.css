@@ -1,0 +1,219 @@
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
+body {
+	
+}
+
+h1,h2,h3,h4,h5,h6 {
+	
+}
+
+h1 {
+	font-size: 36px;
+}
+h2 {
+	font-size: 30px;
+}
+h3 {
+	font-size: 26px;
+}
+h4 {
+	font-size: 22px;
+}
+h5 {
+	font-size: 18px;
+}
+h6 {
+	font-size: 16px;
+}
+
+em {
+	font-style: italic;
+}
+
+strong {
+	font-weight: bold;
+}
+
+table {
+	
+}
+
+p {
+	padding: 0 0 10px 0;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#contentArea li {
+	margin-left: 20px;
+	padding-left: 20px;
+}
+
+#contentArea dt {
+	font-weight: bold;
+}
+
+
+/* Events */
+
+sup {
+	vertical-align: super;
+}
+
+sub {
+	vertical-align: sub;
+}
+
+.entryDetails th, .entryDetails td {
+	margin: 3px;
+	padding: 3px;
+}
+
+.entryDetails th {
+	font-weight: bold;
+	text-align: right;
+}
+
+.anEvent {
+	padding: 5px;
+	border: 5px solid #aa2e26;
+	background: #fff;
+	width: 560px;
+}
+
+.fc-widget-header {
+	font-weight: bold;
+	background-image: url('../images/table-cell-odd-bg.png');
+	border: 2px solid #9fbe61;
+}
+
+.fc-content td {
+	background: #fff;
+	color: #000;
+	border: 2px solid #9fbe61;
+}
+
+td.fc-today {
+	background: #fdd;
+}
+
+.fc-content td.fc-other-month {
+	background: #ddd;
+	color: #666;
+}
+
+.fc-event-title {
+	text-decoration: none;
+	font-weight: bold;
+	color: #aa2e26;
+}
+
+.fc-event-title:hover {
+	text-decoration: underline;
+}
+
+div.fc-event {
+	border: none !important;
+}
+
+.socialLinks td {
+	padding: 2px;
+}
+
+.socialLinks span {
+	background: url('../images/social-icons.png') no-repeat;
+	display: block;
+	height: 16px;
+	line-height: 16px;
+	overflow: hidden;
+	width: 16px;
+}
+
+.socialLinks a {
+	float: left;
+	margin: 3px;
+}
+
+.socialLinks .twitter {
+  background-position: 0 -3007px!important;
+}
+
+.socialLinks .facebook {
+	background-position: 0 -765px!important;
+}
+
+.socialLinks .googlePlus {
+	background-position: 0 -1121px!important;
+}
+
+
+/* Blog */
+
+ul.blogPosts li {
+	background-image: none !important;
+	margin-left: 0 !important;
+	padding-left: 0 !important;
+}
+
+ul.blogPosts .content {
+	display: none;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+	font-weight: normal;
+	text-decoration: none !important;
+}
+
+/* Forms */
+
+form.embForm th {
+	text-align: right;
+	vertical-align: top;
+}
+
+form.embForm th, form.embForm td {
+	padding: 5px;
+}
+
+form.embForm label {
+	font-weight: bold;
+}
+
+form.embForm textarea {
+	width: 500px;
+	height: 250px;
+}
+
+/* Flickr Gallery */
+
+#contentArea ul.flickrGallery li {
+	background-image: none;
+	float: left;
+}
